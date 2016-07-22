@@ -36,25 +36,18 @@ namespace EmCeeSquared
         {
             loggerFactory.AddNLog();
 
-            app.UseStaticFiles();
-            app.UseFileServer(new FileServerOptions
+            var mc2Config = new EmCeeSquaredConfiguration();
+            Configuration.Bind(mc2Config);
+
+            var consulConfig = new ConsulRegistryHostConfiguration
             {
-                EnableDefaultFiles = true,
-                //EnableDirectoryBrowsing = true,
-            });
+                ConsulHost = mc2Config.Consul.Host ?? "localhost",
+                ConsulPort = mc2Config.Consul.Port ?? 8500,
+                IgnoreCriticalServices = mc2Config.Consul.IgnoreCriticalServices
+            };
 
-            //var mc2Config = new EmCeeSquaredConfiguration();
-            //Configuration.Bind(mc2Config);
-
-            //var consulConfig = new ConsulRegistryHostConfiguration
-            //{
-            //    ConsulHost = mc2Config.Consul.Host ?? "localhost",
-            //    ConsulPort = mc2Config.Consul.Port ?? 8500,
-            //    IgnoreCriticalServices = mc2Config.Consul.IgnoreCriticalServices
-            //};
-
-            //var registryClient = BuildRegistryClient(mc2Config.Router.Prefix, consulConfig);
-            //app.UseEqualizer(new EqualizerMiddlewareOptions { RegistryClient = registryClient });
+            var registryClient = BuildRegistryClient(mc2Config.Router.Prefix, consulConfig);
+            app.UseEqualizer(new EqualizerMiddlewareOptions { RegistryClient = registryClient });
         }
     }
 }
