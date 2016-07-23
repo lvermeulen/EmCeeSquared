@@ -43,7 +43,6 @@ namespace EmCeeSquared
             {
                 ConsulHost = mc2Config.Consul.Host ?? "localhost",
                 ConsulPort = mc2Config.Consul.Port ?? 8500,
-                IgnoreCriticalServices = mc2Config.Consul.IgnoreCriticalServices
             };
 
             var registryClient = BuildRegistryClient(mc2Config.Router.Prefix, consulConfig);
