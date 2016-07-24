@@ -32,17 +32,20 @@ namespace EmCeeSquared
             return result;
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddNLog();
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             var mc2Config = new EmCeeSquaredConfiguration();
             Configuration.Bind(mc2Config);
 
             var consulConfig = new ConsulRegistryHostConfiguration
             {
-                ConsulHost = mc2Config.Consul.Host ?? "localhost",
-                ConsulPort = mc2Config.Consul.Port ?? 8500,
+                ConsulHost = mc2Config.Consul?.Host ?? "localhost",
+                ConsulPort = mc2Config.Consul?.Port ?? 8500,
             };
 
             var registryClient = BuildRegistryClient(mc2Config.Router.Prefix, consulConfig);
