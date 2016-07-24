@@ -46,7 +46,7 @@ namespace EmCeeSquared
             };
 
             var registryClient = BuildRegistryClient(mc2Config.Router.Prefix, consulConfig);
-            app.UseEqualizer(new EqualizerMiddlewareOptions { RegistryClient = registryClient });
+            app.UseEqualizer(new EqualizerMiddlewareOptions { RegistryClient = registryClient, PathExclusions = new[] { "/" } });
         }
     }
 }
