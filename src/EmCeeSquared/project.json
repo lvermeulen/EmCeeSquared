@@ -5,9 +5,11 @@
       "type": "platform"
     },
     "Microsoft.AspNetCore.Hosting": "1.0.0",
+    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0",
     "Microsoft.AspNetCore.Owin": "1.0.0",
     "Microsoft.Extensions.Configuration.Binder": "1.0.0",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
@@ -15,12 +17,10 @@
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-    "Equalizer.Middleware.Core": "1.2.0-alpha",
-    "Equalizer.Middleware": "1.2.0-alpha",
-    "Nanophone.RegistryHost.ConsulRegistry": "1.5.0-alpha",
-    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
-    "NLog.Extensions.Logging": "1.0.0-rtm-alpha4",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0"
+    "Equalizer.Middleware.Core": "1.3.1-alpha",
+    "Equalizer.Middleware": "1.3.1-alpha",
+    "Nanophone.RegistryHost.ConsulRegistry": "1.6.1-alpha",
+    "NLog.Extensions.Logging": "1.0.0-rtm-alpha4"
   },
 
   "tools": {
